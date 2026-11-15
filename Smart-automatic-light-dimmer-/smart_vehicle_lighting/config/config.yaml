@@ -1,0 +1,50 @@
+camera:
+  stream_url: http://10.77.169.249:81/stream
+  capture_url: http://10.77.169.249/capture
+  reconnect_delay_sec: 2.0
+  frame_width: 640
+  frame_height: 480
+  request_timeout_sec: 4.0
+  use_mock_stream_on_failure: true
+serial:
+  port: COM9
+  baudrate: 115200
+  timeout_sec: 1.0
+  heartbeat_interval_sec: 0.25
+  mock_serial_on_failure: true
+light_detection:
+  min_brightness_threshold: 185
+  min_bright_region_area: 60
+  max_bright_region_area: 200000
+  min_bright_pixel_percent: 0.05
+  min_aspect_ratio: 0.2
+  max_aspect_ratio: 5.0
+  confirm_frames: 2
+  confirm_time_sec: 0.08
+  return_time_sec: 1.8
+  temporal_smoothing_alpha: 0.50
+  ignore_top_fraction: 0.12
+  ignore_bottom_fraction: 0.05
+  classifier_enabled: false
+  classifier_model_path: models/light_classifier.pt
+  classifier_confidence_threshold: 0.7
+obstacle_detection:
+  model_path: models/obstacle_detector.pt
+  confidence_threshold: 0.45
+  iou_threshold: 0.45
+  target_classes:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 5
+  - 7
+  device: cpu
+sensor_fusion:
+  night_condition_required: true
+  ldr_dark_state: DARK
+  conservative_fallback_beam: LOW
+logging:
+  csv_logging: true
+  log_path: logs/system_decisions.csv
+  verbose_console: true

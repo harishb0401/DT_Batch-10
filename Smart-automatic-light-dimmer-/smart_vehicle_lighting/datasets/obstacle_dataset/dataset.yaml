@@ -1,0 +1,11 @@
+path: D:/DT/smart_vehicle_lighting/datasets/obstacle_dataset
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: pedestrian
+  1: bicycle
+  2: car
+  3: motorcycle
+  4: bus
+  5: truck
